@@ -36,21 +36,18 @@ export class DogService implements FilterableEntityService<DogSearchFilter, Dog>
     }
 
     public applySearchFilter(searchFilter: DogSearchFilter, items: Dog[]): Dog[] {
-        return items.filter(dog => {
-            if (isArrayWithLength(searchFilter.breed)) {
-                if (searchFilter.breed.indexOf(dog.breed) === -1)
-                    return false;
-            }
+        const filterFunctions: ((dog) => boolean)[] = [];
+        if (isArrayWithLength(searchFilter.breed)) {
+            filterFunctions.push((dog) => searchFilter.breed.indexOf(dog.breed) >= 0)
+        }
 
-            if (isArrayWithLength(searchFilter.status)) {
-                if (searchFilter.status.indexOf(dog.status) === -1)
-                    return false;
-            }
+        if (isArrayWithLength(searchFilter.status)) {
+            filterFunctions.push((dog) => searchFilter.status.indexOf(dog.status) >= 0)
+        }
 
-            // TODO implement other search criteria
-
-            return true;
-        })
+        return filterFunctions.reduce((dogs, currentFilter) => {
+            return dogs.filter(currentFilter);
+        }, items)
     }
 }
 
