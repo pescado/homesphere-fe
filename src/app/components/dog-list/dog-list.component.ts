@@ -1,15 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Dog } from 'src/app/models/models';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'app-dog-list',
   templateUrl: './dog-list.component.html',
   styleUrls: ['./dog-list.component.scss']
 })
-export class DogListComponent implements OnInit {
+export class DogListComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  @Input() public dogs: Dog[];
+  constructor(public fb: FormBuilder) {
+    super();
+  }
 
   ngOnInit() {
   }
+
 }

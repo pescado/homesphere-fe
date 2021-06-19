@@ -1,0 +1,11 @@
+.table-header {
+    font-weight: bold;
+    font-size: 18px;
+}
+.rough-table {
+    border: 1px solid grey;
+
+    .rough-row {
+        margin: 1em;
+    }
+}

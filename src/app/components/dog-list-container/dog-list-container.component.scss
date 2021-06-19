@@ -1,3 +1,14 @@
 #app-dog-list-container {
   font-size: 20px;
 }
+
+.filter-group {
+  margin-bottom: 1em;
+  label {
+    font-weight: bold;
+    margin-right: 2em;
+  }
+  select {
+    width: 150px;
+  }
+}

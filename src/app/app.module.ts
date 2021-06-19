@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { DogListContainerComponent } from './components/dog-list-container/dog-list-container.component';
-import { DogListComponent } from './components/dog-list/dog-list.component';
+import { DogListComponent, DogListContainerComponent } from './components';
+import { DogService } from './services/dog-service';
 
 @NgModule({
   declarations: [
@@ -11,9 +12,10 @@ import { DogListComponent } from './components/dog-list/dog-list.component';
     DogListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,30 @@
 <div id="app-dog-list-container">
-  <h1 class="app-title">Interplanetary animal shelter inventory</h1>
+  <h1 class="app-title">Welcome to InterviewWebApp!</h1>
   <h2>Dogs</h2>
-  <app-dog-list [dogs]="ourDogs"></app-dog-list>
+
+  <ng-container *ngIf="filterForm">
+    <div class="flex filter-group" [formGroup]="filterForm">
+      <div class="flex-1">
+        <label>Filter Breed</label>
+        <select formControlName="breed" multiple>
+          <option [value]="breedOptions.beagle">Beagle</option>
+          <option [value]="breedOptions.mutt">Mutt</option>
+          <option [value]="breedOptions.retriever">Retriever</option>
+          <option [value]="breedOptions.shepherd">Sheperd</option>
+          <option [value]="breedOptions.terrier">Terrier</option>
+        </select>
+      </div>
+      <div class="flex-1">
+        <label>Filter Status</label>
+        <select formControlName="status" multiple>
+          <option [value]="statusOptions.examCompleted">Exam Completed</option>
+          <option [value]="statusOptions.foundHuman">Found Human</option>
+          <option [value]="statusOptions.newlyArrived">Newly Arrived</option>
+          <option [value]="statusOptions.readyToTakeHome">Ready To Take Home</option>
+          <option [value]="statusOptions.receivedShots">Received Shots</option>
+        </select>
+      </div>
+    </div>
+  </ng-container>
+  <app-dog-list [dogs]="ourDogs$ | async"></app-dog-list>
 </div>

@@ -1,2 +1,36 @@
-<div>
+<div class="flex table-header">
+    <div class="flex-1">
+        Breed
+    </div>
+    <div class="flex-1">
+        Hair Color
+    </div>
+    <div class="flex-1">
+        Hair Length
+    </div>
+    <div class="flex-1">
+        Size
+    </div>
+    <div class="flex-1">
+        Status
+    </div>
+</div>
+<div class="flex-column rough-table">
+    <div class="flex flex-1 rough-row" *ngFor="let dog of dogs">
+        <div class="flex-1">
+            {{dog.breed}}
+        </div>
+        <div class="flex-1">
+            {{dog.hairColor}}
+        </div>
+        <div class="flex-1">
+            {{dog.hairLength}}
+        </div>
+        <div class="flex-1">
+            {{dog.size}}
+        </div>
+        <div class="flex-1">
+            {{dog.status}}
+        </div>
+    </div>
 </div>

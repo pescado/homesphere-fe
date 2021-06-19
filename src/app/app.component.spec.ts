@@ -1,11 +1,18 @@
 import { TestBed, async } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { DogListComponent, DogListContainerComponent } from './components';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        ReactiveFormsModule
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        DogListComponent,
+        DogListContainerComponent,
       ],
     }).compileComponents();
   }));
