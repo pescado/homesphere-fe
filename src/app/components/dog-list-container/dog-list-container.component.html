@@ -27,4 +27,24 @@
     </div>
   </ng-container>
   <app-dog-list [dogs]="ourDogs$ | async"></app-dog-list>
+  <div class="flex-column rough-table hs-bottom-grid">
+    <h2>Dogs With Handlers</h2>
+    <div class="flex flex-1 rough-row" *ngFor="let vm of dogsWithHandlers$ | async">
+      <div class="flex-1">
+        {{vm.dogs.breed}}
+      </div>
+      <div class="flex-1">
+        {{vm.dogs.hairColor}}
+      </div>
+      <div class="flex-1">
+        {{vm.dogs.hairLength}}
+      </div>
+      <div class="flex-1">
+        {{vm.dogs.size}}
+      </div>
+      <div class="flex-1">
+        {{vm.dogs.status}}
+      </div>
+    </div>
+  </div>
 </div>

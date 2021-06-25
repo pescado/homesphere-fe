@@ -4,6 +4,14 @@ export interface Dog {
   hairColor: string,
   breed: Breed,
   status: Status,
+  yearsExperienceNeeded?: number,
+  availableDogHandlers?: string
+}
+
+export interface DogHandler {
+  name: string;
+  status: string;
+  yearsExperience: number;
 }
 
 export enum Breed {
@@ -11,7 +19,8 @@ export enum Breed {
   mutt = 'Mutt',
   terrier = 'Terrier',
   beagle = 'Beagle',
-  retriever = 'Retriever'
+  retriever = 'Retriever',
+  borderCollie = 'Border Collie'
 }
 
 export enum DogSize {
